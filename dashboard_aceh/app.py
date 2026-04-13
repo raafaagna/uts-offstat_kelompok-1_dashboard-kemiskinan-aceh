@@ -844,16 +844,30 @@ with row5_l:
         "pertumbuhan_pdrb":  "Growth PDRB (%)",
     })
 
+    def _color_miskin(val):
+        try:
+            v = float(val)
+            if v >= 18:
+                return "background-color: #ffcdd2; color: #b71c1c; font-weight: 600"
+            elif v >= 14:
+                return "background-color: #fff9c4; color: #f57f17; font-weight: 600"
+            elif v >= 10:
+                return "background-color: #fff8e1; color: #e65100"
+            else:
+                return "background-color: #c8e6c9; color: #1b5e20; font-weight: 600"
+        except (ValueError, TypeError):
+            return ""
+
     st.dataframe(
         tbl_display.style
             .apply(_style_tbl, axis=1)
+            .map(_color_miskin, subset=["Miskin (%)"])
             .format({
                 "Miskin (%)":       "{:.2f}",
                 "IPM":              "{:.2f}",
                 "TPT (%)":          "{:.2f}",
                 "Growth PDRB (%)":  "{:.2f}",
-            })
-            .background_gradient(subset=["Miskin (%)"], cmap="RdYlGn_r", vmin=0, vmax=25),
+            }),
         use_container_width=True,
         hide_index=True,
         height=350,
