@@ -319,7 +319,7 @@ def fig_pergerakan_klaster(kl: pd.DataFrame) -> go.Figure:
     return fig
 
 
-# ── 9. Analisis Kesenjangan Target (Gap Analysis) ────────────────────────────
+# ── 9. Analisis Kesenjangan Target ────────────────────────────
 def fig_gap_analysis(df_provinsi: pd.DataFrame) -> go.Figure:
     fig = go.Figure()
 
@@ -373,7 +373,7 @@ def fig_gap_analysis(df_provinsi: pd.DataFrame) -> go.Figure:
 
     fig.update_layout(
         **_base_layout(
-            title=dict(text="Analisis Kesenjangan (Gap Analysis) Realisasi vs Target RPJMD", font=dict(size=13, color="#1a1a2e"), x=0, xanchor="left"),
+            title=dict(text="Analisis Kesenjangan Realisasi vs Target RPJMD", font=dict(size=13, color="#1a1a2e"), x=0, xanchor="left"),
             yaxis=dict(title="Kemiskinan (%)", ticksuffix="%", gridcolor=BORDER, gridwidth=0.5, linecolor=BORDER, tickfont=dict(size=11), title_font=dict(size=11)),
             xaxis=dict(title="Tahun", dtick=1, gridcolor=BORDER, gridwidth=0.5, linecolor=BORDER, tickfont=dict(size=11), title_font=dict(size=11)),
             hovermode="x unified",
