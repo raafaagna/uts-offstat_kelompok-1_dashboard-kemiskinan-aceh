@@ -604,6 +604,9 @@ with row1_r:
 # ══════════════════════════════════════════════════════════════════════════════
 st.markdown('<div class="section-label">02 — Analisis Tren</div>', unsafe_allow_html=True)
 
+if not wilayah_filter:
+    st.caption("💡 **Tip:** Pilih kabupaten/kota pada _Filter Global_ di atas untuk menampilkan dan membandingkan tren daerah dengan rata-rata Provinsi Aceh.")
+
 st.plotly_chart(
     fig_tren_kemiskinan(df_tren, df_provinsi, wilayah_filter),
     use_container_width=True, config={"displayModeBar": False},
