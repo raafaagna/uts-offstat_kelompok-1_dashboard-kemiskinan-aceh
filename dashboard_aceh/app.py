@@ -449,7 +449,7 @@ with fc3:
     var_key = st.multiselect(
         "Variabel Prediktor",
         options=list(VAR_OPTIONS.keys()),
-        default=["Indeks Pembangunan Masyarakat"],
+        default=[],
         key="f_var",
     )
 
