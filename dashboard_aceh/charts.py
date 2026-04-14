@@ -88,6 +88,23 @@ def fig_tren_kemiskinan(df: pd.DataFrame, df_provinsi: pd.DataFrame, kab_terpili
             hovermode="x unified",
         )
     )
+    
+    # Penyesuaian legenda: 
+    # yanchor="top" akan membuat kotak legenda meluas ke bawah, bukan ke atas, 
+    # sehingga terhindar dari tabrakan dengan sumbu x.
+    # margin bawah (b=120) memberi ruang cukup untuk legenda yang bisa berjumlah puluhan saat "Select All".
+    fig.update_layout(
+        legend=dict(
+            orientation="h",
+            yanchor="top",
+            y=-0.15,
+            xanchor="center",
+            x=0.5,
+            font=dict(size=10)
+        ),
+        margin=dict(l=12, r=12, t=36, b=120),
+        height=480
+    )
     return fig
 
 
